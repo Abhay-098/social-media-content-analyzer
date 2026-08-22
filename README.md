@@ -77,6 +77,8 @@ The application extracts the text, analyzes key engagement factors, calculates a
 | Source Control | Git + GitHub |
 
 ---
+## 🧠 Approach
+I built the application using React/Vite for the frontend and Node.js/Express for the backend. Users can upload PDF, PNG, JPG, or JPEG files through a responsive drag-and-drop or file-picker interface. PDF files are processed using pdf-parse, while scanned images are processed using Tesseract.js OCR. Extracted text is passed to a modular rule-based analyzer that calculates word count, hashtag count, emoji count, call-to-action presence, and an engagement score, then generates actionable improvement suggestions. The frontend includes file validation, loading states, error handling, responsive design, and a results dashboard. The backend separates file handling, text extraction, and content analysis to keep the system maintainable and extensible. The frontend is deployed on Vercel and the API on Render, with environment variables connecting the production services. This architecture also allows the analyzer to be enhanced with an AI/ML service in the future.
 
 ## 🏗️ Architecture
 
@@ -152,3 +154,5 @@ social-media-content-analyzer/
 ├── README.md
 ├── package.json
 └── package-lock.json
+
+
