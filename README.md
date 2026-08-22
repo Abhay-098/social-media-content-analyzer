@@ -1,24 +1,42 @@
 # Social Media Content Analyzer
 
-A full-stack web application that analyzes social media content from PDF and image files and provides engagement improvement suggestions.
+A full-stack web application that extracts text from PDF and image files and analyzes the content for social media engagement improvements.
+
+## Live Application
+
+**Frontend:**  
+https://social-media-content-analyzer-taupe-five.vercel.app/
+
+**Backend API:**  
+https://social-media-content-analyzer-api-tdwi.onrender.com/
+
+## GitHub Repository
+
+https://github.com/Abhay-098/social-media-content-analyzer
+
+---
 
 ## Features
 
-- PDF file upload
-- PNG, JPG, and JPEG image upload
-- Drag-and-drop support
+- Upload PDF files
+- Upload PNG, JPG, and JPEG images
+- Drag-and-drop file upload
+- File picker support
 - PDF text extraction
-- OCR using Tesseract
-- Engagement score
-- Word count
+- OCR for scanned images using Tesseract.js
+- Word count analysis
 - Hashtag detection
 - Emoji detection
 - Call-to-action detection
-- Improvement suggestions
+- Engagement score out of 100
+- Actionable improvement suggestions
 - Loading states
 - Error handling
+- File type validation
 - 10 MB file size validation
-- Responsive UI
+- Responsive design for desktop and mobile
+
+---
 
 ## Tech Stack
 
@@ -36,6 +54,47 @@ A full-stack web application that analyzes social media content from PDF and ima
 - Multer
 - pdf-parse
 - Tesseract.js
+- CORS
+- dotenv
+
+### Deployment
+
+- Frontend: Vercel
+- Backend: Render
+- Source Code: GitHub
+
+---
+
+## Architecture
+
+```text
+User
+ │
+ ▼
+React / Vite Frontend
+ │
+ │ POST /api/analyze
+ ▼
+Express API
+ │
+ ├── PDF → PDF Text Extraction
+ │
+ └── Image → Tesseract OCR
+ │
+ ▼
+Content Analyzer
+ │
+ ├── Word Count
+ ├── Hashtag Count
+ ├── Emoji Count
+ ├── CTA Detection
+ └── Engagement Score
+ │
+ ▼
+Improvement Suggestions
+ │
+ ▼
+React Results Dashboard
 
 ## Project Structure
 
