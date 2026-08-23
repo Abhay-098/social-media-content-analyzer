@@ -4,11 +4,22 @@ function countHashtags(text) {
 }
 
 function countEmojis(text) {
-  const matches = text.match(
-    /[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu
-  );
+  const emojiRegex =
+    /[\p{Emoji_Presentation}\p{Extended_Pictographic}]/u;
 
-  return matches ? matches.length : 0;
+  const segmenter = new Intl.Segmenter(undefined, {
+    granularity: "grapheme"
+  });
+
+  let count = 0;
+
+  for (const { segment } of segmenter.segment(text)) {
+    if (emojiRegex.test(segment)) {
+      count++;
+    }
+  }
+
+  return count;
 }
 
 function countWords(text) {
